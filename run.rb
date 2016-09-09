@@ -1,4 +1,5 @@
 # Gems
+require 'bundler/setup'
 require 'yaml'
 
 # Config
