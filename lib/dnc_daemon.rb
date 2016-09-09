@@ -47,7 +47,7 @@ class DncDaemon
   def poll(time)
     SCHEDULER.every time do
       find_updates
-      # process_cache!
+      process_cache!
       info("(cam: #{cam.count} out: #{outgoing.count} in: #{incoming.count})")
     end
     SCHEDULER.jobs.last.call
