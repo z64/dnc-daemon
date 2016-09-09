@@ -45,7 +45,7 @@ class DncDaemon
   #
   # @param [String] time how often to poll each dir
   def poll(time)
-    SCHEDULER.every "#{time}" do
+    SCHEDULER.every time do
       find_updates
       # process_cache!
       info("(cam: #{cam.count} out: #{outgoing.count} in: #{incoming.count})")
@@ -78,9 +78,7 @@ class DncDaemon
   # @return [Array<String>] new or deleted entries
   def updated_files(a, b)
     diff = a - b | b - a
-    if diff.empty?
-      # info('no changes..')
-    else
+    unless diff.empty?
       info("updated: #{diff.inspect} (#{diff.count}"\
       	   " updated, #{b.count} total)")
     end
