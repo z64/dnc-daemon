@@ -61,10 +61,11 @@ class CamFile
   # @return [Hash<String>] hash of paths, either existing or created
   def daemon_folders?
     time = Time.now.strftime('%Y-%m-%d')
-    folders = [
-      "#{File.dirname(file.path)}/daemon-incoming #{time}",
-      "#{File.dirname(file.path)}/daemon-outgoing #{time}"
-    ]
+    folders = []
+    folders << "#{File.dirname(file.path)}/"\
+               "daemon-incoming #{time}" if @incoming_file
+    folders << "#{File.dirname(file.path)}/"\
+               "daemon-outgoing #{time}" if @outgoing_file
     folders = FileUtils.mkdir_p(folders)
     { incoming: folders.first, outgoing: folders.last }
   end
