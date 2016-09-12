@@ -89,6 +89,7 @@ class CamFile
         puts e
       end
     end
+    nil
   end
 
   private :daemon_folders?
