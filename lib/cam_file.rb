@@ -66,7 +66,7 @@ class CamFile
       "#{File.dirname(file.path)}/daemon-outgoing #{time}"
     ]
     folders = FileUtils.mkdir_p(folders)
-    return { incoming: folders.first, outgoing: folders.last }
+    { incoming: folders.first, outgoing: folders.last }
   end
 
   # Moves files from INCOMING and OUTGOING into daemon_folders? respectively.
