@@ -4,6 +4,10 @@ DNC Daemon is a Ruby application for the management of a three-node file control
 
 ***Some details below have not been implemented yet, or differs from the current implementation.***
 
+## Documentation
+
+See documentation on [RubyDoc](http://www.rubydoc.info/github/z64/dnc-daemon/master) here.
+
 ## Configuration
 
 Each of these folder locations is configured in `config.yaml`.
