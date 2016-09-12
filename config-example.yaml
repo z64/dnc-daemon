@@ -1,0 +1,9 @@
+---
+# Nodes to scan for files from
+dirs:
+  incoming: C:/incoming/*
+  outgoing: C:/outgoing/*
+  cam: C:/cam/*
+
+# Poll frequency
+poll: '24h'
