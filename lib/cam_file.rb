@@ -32,9 +32,13 @@ class CamFile
   #
   # @return [true|false] whether the file has changed
   def changed?
-    Digest::MD5.digest(file.read) != Digest::MD5.digest(incoming_file.read)
-  rescue
-    raise 'CamFile#changed? called on CamFile with no incoming_file'
+    unless incoming_file.nil?
+      @file_contents     ||= file.read
+      @incoming_contents ||= incoming_file.read
+      @file_contents != @incoming_contents
+    else
+      nil
+    end
   end
 
   # Returns a hash of CamFile properties.
