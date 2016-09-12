@@ -62,8 +62,8 @@ class CamFile
   def daemon_folders?
     time = Time.now.strftime('%Y-%m-%d')
     folders = [
-      "#{File.dirname(file.path)}/daemon/incoming #{time}",
-      "#{File.dirname(file.path)}/daemon/outgoing #{time}"
+      "#{File.dirname(file.path)}/daemon-incoming #{time}",
+      "#{File.dirname(file.path)}/daemon-outgoing #{time}"
     ]
     folders = FileUtils.mkdir_p(folders)
     return { incoming: folders.first, outgoing: folders.last }
